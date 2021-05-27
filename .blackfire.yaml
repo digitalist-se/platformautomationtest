@@ -1,0 +1,12 @@
+tests:
+  Pages should be fast enough:
+    path: /.*
+    assertions:
+      - main.io < 150ms
+      - main.cpu_time < 300ms
+
+scenarios:
+  Home:
+    - /index.php
+  Login:
+    - /user/login
