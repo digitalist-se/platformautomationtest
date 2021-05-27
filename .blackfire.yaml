@@ -10,3 +10,5 @@ scenarios:
     - /index.php
   Login:
     - /user/login
+  Welcome:
+    - /welcome
