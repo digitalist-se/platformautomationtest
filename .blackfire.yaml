@@ -14,3 +14,10 @@ tests:
     unless: 'is_dev()'
     assertions:
       - 'metrics.twig.compile.count == 0'
+scenarios:
+  Home:
+    - /index.php
+  Login:
+    - /user/login
+  Welcome:
+    - /welcome
