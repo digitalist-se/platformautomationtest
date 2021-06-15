@@ -1,14 +1,16 @@
 tests:
-  Pages should be fast enough:
-    path: /.*
+  'Home page should be fast enough':
+    path: '/index.php'
     assertions:
-      - main.io < 150ms
-      - main.cpu_time < 300ms
-
-scenarios:
-  Home:
-    - /index.php
-  Login:
-    - /user/login
-  Welcome:
-    - /welcome
+      - 'main.io < 150ms'
+      - 'main.cpu_time < 300ms'
+  'A database connection should be opened only when queries are made':
+    path: '/.*'
+    when: "metrics.sql.connections.count > 0"
+    assertions:
+      - 'metrics.sql.queries.count > 0'
+  'Twig template cache should be enabled in production':
+    path: '/.*'
+    unless: 'is_dev()'
+    assertions:
+      - 'metrics.twig.compile.count == 0'
