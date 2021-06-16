@@ -146,3 +146,7 @@ crons:
     drupal:
         spec: '*/19 * * * *'
         cmd: 'cd web ; drush core-cron'
+  # Better uptime heartbeat test
+    database-backup:
+      spec: '0 0 * * *'
+      cmd: 'cd web; sh .scripts/backup_database.sh'
