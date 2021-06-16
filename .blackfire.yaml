@@ -12,6 +12,6 @@ tests:
 
 scenarios:
   Home:
-    - /index.php
+    - /welcome
   Login:
     - /user/login
